@@ -147,12 +147,14 @@ nav a {
 #form-section {
 	display: flex;
 	gap: 60px;
+	overflow: hidden;
+	height: 600px;
+	max-height: 1000px;
+	transition: max-height .5s;
 }
 
 #form-section.collapsed {
-	transition: height .5s;
-	height: 24px;
-	overflow: hidden;
+	max-height: 30px;
 }
 
 #form-title-wrapper {
