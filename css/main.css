@@ -273,7 +273,7 @@ nav a {
 	margin-bottom: 12px;
 }
 
-.card__info .normal-price {
+.card__info .old-price {
 	margin-bottom: 6px;
 }
 
@@ -417,7 +417,7 @@ nav a {
 		margin-bottom: 9px;
 	}
 
-	.card-info .normal-price {
+	.card-info .old-price {
 		margin-bottom: 4px;
 	}
 
