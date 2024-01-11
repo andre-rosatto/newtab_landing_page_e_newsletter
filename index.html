@@ -48,16 +48,17 @@
 				<label for="input-email">E-mail:</label>
 				<input type="email" name="email" id="input-email" required>
 				<label for="input-cpf">CPF:</label>
-				<input type="tel" name="cpf" id="input-cpf" required>
+				<input type="tel" name="cpf" id="input-cpf" pattern=".{14,}" required>
 				<div id="radio-section">
-					<input type="radio" name="gender" id="gender-male" value="male">
+					<input type="radio" name="gender" id="gender-male" value="male" required>
 					<label for="gender-male" class="radio-label">Masculino</label>
 					<input type="radio" name="gender" id="gender-female" value="female">
 					<label for="gender-female" class="radio-label">Feminino</label>
 				</div>
-				<button type="submit">Enviar</button>
+				<button>Enviar</button>
 			</form>
 		</section>
+
 		<section id="selection-section" class="splitter-section">
 			<div class="splitter"></div>
 			<h2 class="title-splitter">Sua seleção especial</h2>
@@ -185,6 +186,7 @@
 			</div>
 			<button id="btn-selection-more" class="btn-big">Ainda mais produtos aqui!</button>
 		</section>
+
 		<section id="share-section" class="splitter-section">
 			<div class="splitter"></div>
 			<h2 class="title-splitter">Compartilhe a novidade</h2>
@@ -193,11 +195,11 @@
 				<div id="share-info-container">
 					<label>
 						Nome do seu amigo:
-						<input type="text">
+						<input type="text" required>
 					</label>
 					<label>
 						E-mail:
-						<input type="email">
+						<input type="email" required>
 					</label>
 				</div>
 				<button class="btn-big">Enviar agora</button>

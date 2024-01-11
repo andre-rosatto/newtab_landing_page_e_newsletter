@@ -11,6 +11,7 @@ function init() {
 	document.querySelector('#btn-selection-more').addEventListener('click', () => {
 		fetchProducts();
 	});
+	document.querySelector('#input-cpf').addEventListener('input', e => formatCPF(e.target));
 }
 
 function fetchProducts() {
@@ -27,6 +28,21 @@ function formatCurrency(value) {
 		style: 'currency',
 		currency: 'BRL'
 	}).format(value);
+}
+
+function formatCPF(target) {
+	let digits = (target.value.match(/[0-9]/g) ?? ['']).join('');
+	digits = digits.substring(0, Math.min(digits.length, 11));
+	let result = '';
+	for (let i = 0; i < digits.length; i++) {
+		if (i > 0 && i < 8 && i % 3 === 0) {
+			result += '.';
+		} else if (i > 0 && i % 9 === 0) {
+			result += '-';
+		}
+		result += digits[i];
+	}
+	target.value = result;
 }
 
 function addProducts(products) {
