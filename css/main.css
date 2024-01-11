@@ -148,7 +148,6 @@ nav a {
 	display: flex;
 	gap: 60px;
 	overflow: hidden;
-	height: 600px;
 	max-height: 1000px;
 	transition: max-height .5s;
 }
