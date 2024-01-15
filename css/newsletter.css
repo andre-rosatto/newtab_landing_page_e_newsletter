@@ -32,6 +32,10 @@ footer p:last-child {
 	margin: auto;
 }
 
+#greeting-section h2 {
+	margin-bottom: 9px;
+}
+
 #selection-section {
 	margin-top: 37px;
 }

@@ -4,6 +4,7 @@ init();
 fetchProducts();
 
 function init() {
+	document.querySelector('#customer-name').innerText = 'Fulano';
 	document.querySelector('#btn-more').addEventListener('click', () => { window.open('./') });
 }
 
