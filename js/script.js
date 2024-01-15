@@ -1,10 +1,10 @@
 let nextPage = 'frontend-intern-challenge-api.iurykrieger.now.sh/products?page=1';
 
 init();
+fetchProducts();
 
 function init() {
-	fetchProducts();
-
+	document.querySelector('#form-section form').addEventListener('submit', onSelectionFormSubmit);
 	document.querySelector('#form-title-wrapper img').addEventListener('click', () => {
 		document.querySelector('#form-section').classList.toggle('collapsed');
 	});
@@ -12,6 +12,7 @@ function init() {
 		fetchProducts();
 	});
 	document.querySelector('#input-cpf').addEventListener('input', e => formatCPF(e.target));
+	document.querySelector('#share-section form').addEventListener('submit', onShareFormSubmit);
 }
 
 function fetchProducts() {
@@ -47,9 +48,10 @@ function formatCPF(target) {
 
 function addProducts(products) {
 	const container = document.querySelector('#card-container');
-	let newHTML = '';
 	products.forEach(product => {
-		newHTML += `
+		const card = document.createElement('div');
+		card.className = 'card';
+		card.innerHTML += `
 			<div class="card">
 				<img src="${product.image}" alt="${product.name}" title="${product.name}\nApenas ${formatCurrency(product.price)}" loading="lazy">
 				<div class="card__info">
@@ -62,6 +64,32 @@ function addProducts(products) {
 				</div>
 			</div>
 		`;
+		card.querySelector('button').addEventListener('click', () => { onBuyClick(product) });
+		container.append(card);
 	});
-	container.innerHTML += newHTML;
+}
+
+function onBuyClick(product) {
+	alert(`Produto comprado:
+	 Id: ${product.id}
+	 Nome: ${product.name}
+	 Descrição: ${product.description}
+	 Preço: ${formatCurrency(product.price)}
+`);
+}
+
+function onSelectionFormSubmit() {
+	alert(`Formulário enviado:
+	 Nome: ${document.querySelector('#input-name').value}
+	 Email: ${document.querySelector('#input-email').value}
+	 CPF: ${document.querySelector('#input-cpf').value}
+	 Sexo: ${document.querySelector('#gender-male').checked ? 'Masculino' : 'Feminino'}
+`);
+}
+
+function onShareFormSubmit() {
+	alert(`Formulário enviado:
+	 Nome: ${document.querySelector('#share-info-container input[type=text]').value}
+	 Nome: ${document.querySelector('#share-info-container input[type=email]').value}
+`);
 }
