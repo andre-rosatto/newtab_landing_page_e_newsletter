@@ -4,7 +4,8 @@ init();
 fetchProducts();
 
 function init() {
-	document.querySelector('#customer-name').innerText = 'Fulano';
+	const searchParams = new URLSearchParams(window.location.search);
+	document.querySelector('#customer-name').innerText = searchParams.get('name');
 	document.querySelector('#btn-more').addEventListener('click', () => { window.open('./') });
 }
 

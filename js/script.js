@@ -87,9 +87,12 @@ function onSelectionFormSubmit() {
 `);
 }
 
-function onShareFormSubmit() {
-	alert(`Formulário enviado:
-	 Nome: ${document.querySelector('#share-info-container input[type=text]').value}
-	 Nome: ${document.querySelector('#share-info-container input[type=email]').value}
-`);
+function onShareFormSubmit(e) {
+	// 	alert(`Formulário enviado:
+	// 	 Nome: ${document.querySelector('#share-info-container input[type=text]').value}
+	// 	 Nome: ${document.querySelector('#share-info-container input[type=email]').value}
+	// `);
+	const name = document.querySelector('#share-info-container input[type=text]').value;
+	window.open(`./newsletter.html?name=${name}`, target = "blank");
+	e.preventDefault();
 }
